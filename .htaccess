@@ -1,0 +1,16 @@
+# Enable error handling
+ErrorDocument 400 /404.php
+ErrorDocument 401 /404.php
+ErrorDocument 403 /404.php
+ErrorDocument 404 /404.php
+ErrorDocument 500 /404.php
+ErrorDocument 502 /404.php
+ErrorDocument 503 /404.php
+
+# Optional: Redirect all invalid URLs to 404.php using mod_rewrite
+RewriteEngine On
+
+# If requested file or directory does not exist, send to 404.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /404.php [L]
